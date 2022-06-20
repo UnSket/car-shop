@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+    margin: 24px 0;
+}

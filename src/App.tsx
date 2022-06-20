@@ -7,16 +7,24 @@ import {
 } from "react-router-dom";
 import { CarsList } from './screens/CarsList/CarsList';
 import { NotFound } from './screens/NotFound/NotFound';
+import styles from './App.module.css'
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 
-function App() {
+export const App: React.FC = () => {
   return (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<CarsList />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
+    <BrowserRouter>
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.content}>
+          <Routes>
+            <Route path="/" element={<CarsList />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
+
   );
 }
-
-export default App;
