@@ -1,0 +1,38 @@
+@value imageHeight 400px;
+
+.imageWrapper {
+    width: 100%;
+    height: imageHeight;
+    background-color: rgb(184, 184, 184);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contentWrapper {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 800px;
+    display: flex;
+}
+
+.contentRow {
+    width: 1px;
+    flex: 1px 1 1;
+
+    &:first-child {
+        margin-right: 12px;
+    }
+}
+
+.description, .status {
+    margin-top: 12px;
+}
+
+.cardActions {
+    justify-content: flex-end;
+}

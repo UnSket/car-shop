@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Link, Button } from '@mui/material';
 import React from 'react';
-import styles from './Header.module.css';
-import logo from './logo.png';
+import styles from './Header.module.scss';
+import logo from '../../assets/logo.png';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
 
 export const Header: React.FC = () => {

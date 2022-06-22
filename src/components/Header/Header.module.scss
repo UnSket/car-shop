@@ -1,9 +1,10 @@
 .container {
     display: flex;
     justify-content: space-between;
+    height: 80px;
+    align-items: center;
 }
 
 .logo {
-    height: 50px;
-    margin: 24px 0;
+    height: 40px;
 }
