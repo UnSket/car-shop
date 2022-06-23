@@ -4,13 +4,13 @@ import {useQuery} from 'react-query';
 import {getCarQuery} from "../../queries/car";
 import styles from './CarInfo.module.scss';
 import {Button, Card, CardActions, CardContent, Skeleton, Typography} from "@mui/material";
-
-const getCarDescription = (car: ApiData.Car): string => `Stock # ${car.stockNumber} - ${car.mileage.number} ${car.mileage.unit} - ${car.fuelType} - ${car.color}`
+import {getCarDescription} from "../../lib/getCarDescription";
 
 export const CarInfo: React.FC = () => {
     const {stockNumber} = useParams();
 
     const {data: car} = useQuery(getCarQuery({stockNumber: stockNumber as string}));
+    // const car: ApiData.Car | undefined = undefined;
 
     return (
         <div>
@@ -19,31 +19,46 @@ export const CarInfo: React.FC = () => {
             <div className={styles.contentWrapper}>
                 <div className={styles.content}>
                     <div className={styles.contentRow}>
-                        {car ? <Typography variant="h3">{car.manufacturerName}</Typography> :
-                            <Skeleton variant="rectangular" width={200} height={50}/>}
-                        <div className={styles.description}>
-                            {car ? <Typography variant="subtitle1">{getCarDescription(car)}</Typography> :
-                                <Skeleton variant="rectangular" width={300} height={30}/>}
-                        </div>
-                        <div className={styles.status}>
-                            {car ? <Typography variant="body1">
+                        {car ? (
+                            <>
+                                <Typography variant="h3">{car.manufacturerName}</Typography>
+                                <Typography variant="subtitle1" mt={1.5}>{getCarDescription(car)}</Typography>
+                                <Typography variant="body1" mt={1.5}>
                                     This car is currently available and can be delivered as soon as tomorrow morning. Please
                                     be aware that delivery times shown in this page are note definitive and may change due
                                     to bad weather conditions.
-                                </Typography> :
-                                <Skeleton variant="rectangular" width={400} height={90}/>}
-                        </div>
+                                </Typography>
+                            </>
+                            ) : (
+                                <>
+                                    <Skeleton variant="text" />
+                                    <Skeleton variant="text" />
+                                    <Skeleton variant="text" />
+                                </>
+                            )
+                            }
                     </div>
                     <div className={styles.contentRow}>
                         <Card variant="outlined">
-                            <CardContent>
-                                <Typography variant="body1">
-                                    If you like this car, click the button and save it in your collection of favourite items.
-                                </Typography>
-                            </CardContent>
-                            <CardActions className={styles.cardActions}>
-                                <Button>Save</Button>
-                            </CardActions>
+                            {car ? (
+                                <>
+                                    <CardContent>
+                                        <Typography variant="body1">
+                                            If you like this car, click the button and save it in your collection of favourite items.
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions className={styles.cardActions}>
+                                    <Button>Save</Button>
+                                    </CardActions>
+                                </>
+                            ) : (
+                                <CardContent>
+                                    <Skeleton variant="text" />
+                                    <Skeleton variant="text" />
+                                    <Skeleton variant="text" />
+                                </CardContent>
+                                )}
+
                         </Card>
                     </div>
                 </div>
