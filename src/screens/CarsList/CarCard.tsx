@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardContent, Skeleton, Typography} from "@mui/material";
+import {Paper, Skeleton, Typography} from "@mui/material";
 import styles from './CarCard.module.scss';
 import {getCarDescription} from "../../lib/getCarDescription";
 import {Link} from "../../components/Link/Link";
@@ -10,9 +10,9 @@ interface CarCardProps {
 
 export const CarCard: React.FC<CarCardProps> = ({car}) => {
     return(
-        <Card variant="outlined">
-            <CardContent className={styles.container}>
-                {car ? <div className={styles.logo} style={{backgroundImage: `url(${car.pictureUrl})`}} /> : <Skeleton variant="rectangular" width={300} height={300} />}
+        <Paper variant="outlined">
+            <div className={styles.container}>
+                {car ? <div className={styles.logo} style={{backgroundImage: `url(${car.pictureUrl})`}} /> : <Skeleton variant="rectangular" width={80} height={80} />}
                 <div className={styles.content}>
                     {car ? (
                         <>
@@ -28,7 +28,7 @@ export const CarCard: React.FC<CarCardProps> = ({car}) => {
                             </>
                         )}
                 </div>
-            </CardContent>
-        </Card>
+            </div>
+        </Paper>
     )
 }

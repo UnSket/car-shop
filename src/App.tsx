@@ -13,7 +13,15 @@ import {Footer} from './components/Footer/Footer';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {CarInfo} from "./screens/CarInfo/CarInfo";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
+            staleTime: 1000 * 60 * 5 // 5 minutes
+        }
+    }
+});
 
 export const App: React.FC = () => {
     return (

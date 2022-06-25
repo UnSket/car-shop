@@ -5,12 +5,14 @@ import {getCarQuery} from "../../queries/car";
 import styles from './CarInfo.module.scss';
 import {Button, Card, CardActions, CardContent, Skeleton, Typography} from "@mui/material";
 import {getCarDescription} from "../../lib/getCarDescription";
+import {useIsCarFavourite} from "../../services/favouriteCars";
 
 export const CarInfo: React.FC = () => {
     const {stockNumber} = useParams();
 
     const {data: car} = useQuery(getCarQuery({stockNumber: stockNumber as string}));
-    // const car: ApiData.Car | undefined = undefined;
+
+    const {toggle, isFavourite} = useIsCarFavourite(car?.stockNumber);
 
     return (
         <div>
@@ -48,7 +50,7 @@ export const CarInfo: React.FC = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardActions className={styles.cardActions}>
-                                    <Button>Save</Button>
+                                        <Button onClick={toggle} variant={isFavourite ? 'text' : 'outlined'}>{isFavourite ? 'Remove' : 'Save'}</Button>
                                     </CardActions>
                                 </>
                             ) : (

@@ -11,4 +11,12 @@ declare namespace ApiData {
         pictureUrl: string;
         color: string;
     }
+
+    interface Manufacturer {
+        name: string,
+        models:
+            {
+                "name": string
+            }[]
+    }
 }
