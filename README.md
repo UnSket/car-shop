@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+# The Car Shop test application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project structure
+
+-   **Assets** - resources like images, fonts and templates
+
+-   **Components** - reusable or standalone react components
+
+-   **Lib** - utils or helpers functions
+
+-   **Queries** - prepared API queries
+
+-   **Screens** - react components used as screens in react-router
+
+-   **Services** - global services like local storage service
+
+-   **Types** - Global application types
+
+## Project bonus features
+
+### Caching
+
+All requests to API are cached for 5 minutes. It's customizable option (file src/services/queryClient.ts)
+
+### ErrorHandling
+
+Simple error handling by ErrorBoundary (file src/components/ErrorBoundary)
+
+### Prettier & EsLint
+
+Base prettier & eslint settings to make pretty well formatted code
 
 ## Available Scripts
 
@@ -38,6 +66,10 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `npm run pretiier:fix`
+
+Reformat code according to .prettier.js config
 
 ## Learn More
 

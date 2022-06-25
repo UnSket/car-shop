@@ -5,19 +5,10 @@ import { NotFound } from './screens/NotFound/NotFound';
 import styles from './App.module.scss';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider } from 'react-query';
 import { CarInfo } from './screens/CarInfo/CarInfo';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
-
-const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            refetchOnMount: false,
-            refetchOnWindowFocus: false,
-            staleTime: 1000 * 60 * 5, // 5 minutes
-        },
-    },
-});
+import { queryClient } from './services/queryClient';
 
 export const App: React.FC = () => {
     return (

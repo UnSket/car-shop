@@ -5,7 +5,7 @@ import styles from './CarsList.module.scss';
 import { useSearchParams } from 'react-router-dom';
 
 export const CarsList: React.FC = () => {
-    let [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const [filter, setFilter] = useState({
         color: searchParams.get('color') || '',
