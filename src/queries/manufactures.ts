@@ -1,5 +1,5 @@
-import {createQuery} from "../lib/createQuery";
-import {makeRequest} from "../lib/api";
+import { createQuery } from '../lib/createQuery';
+import { makeRequest } from '../lib/api';
 
 export function getManufacturesQueryKey(): string {
     return `manufactures`;
@@ -11,7 +11,9 @@ export const getManufacturesQuery = createQuery({
     },
 
     queryFn: async () => {
-        const responseData = await makeRequest< {manufacturers: ApiData.Manufacturer[]}>({
+        const responseData = await makeRequest<{
+            manufacturers: ApiData.Manufacturer[];
+        }>({
             url: `manufacturers`,
         });
 

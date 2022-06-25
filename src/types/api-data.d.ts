@@ -6,17 +6,16 @@ declare namespace ApiData {
         mileage: {
             number: number;
             unit: 'km' | 'mi';
-        },
+        };
         fuelType: 'Diesel' | 'Petrol';
         pictureUrl: string;
         color: string;
     }
 
     interface Manufacturer {
-        name: string,
-        models:
-            {
-                "name": string
-            }[]
+        name: string;
+        models: {
+            name: string;
+        }[];
     }
 }

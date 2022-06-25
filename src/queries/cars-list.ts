@@ -1,5 +1,5 @@
-import {createQuery} from "../lib/createQuery";
-import {makeRequest} from "../lib/api";
+import { createQuery } from '../lib/createQuery';
+import { makeRequest } from '../lib/api';
 
 export interface GetCarsListQueryParams {
     manufacturer?: string;
@@ -8,21 +8,16 @@ export interface GetCarsListQueryParams {
 }
 
 export interface GetCarsListResponse {
-    cars: ApiData.Car[],
-    totalPageCount: number,
-    totalCarsCount: number
+    cars: ApiData.Car[];
+    totalPageCount: number;
+    totalCarsCount: number;
 }
 
 export const getCarsListQuery = createQuery({
     queryKey(params: GetCarsListQueryParams) {
         const { manufacturer, color, page } = params;
 
-        return [
-            'carsList',
-            manufacturer,
-            color,
-            page
-        ].join('/');
+        return ['carsList', manufacturer, color, page].join('/');
     },
     queryFn(params: GetCarsListQueryParams) {
         const { manufacturer, color, page } = params;
@@ -32,7 +27,7 @@ export const getCarsListQuery = createQuery({
             queryParams: {
                 manufacturer,
                 color,
-                page
+                page,
             },
         });
     },

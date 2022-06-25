@@ -1,5 +1,5 @@
-import {createQuery} from "../lib/createQuery";
-import {makeRequest} from "../lib/api";
+import { createQuery } from '../lib/createQuery';
+import { makeRequest } from '../lib/api';
 
 export interface CarQueryParams {
     stockNumber: string;
@@ -15,7 +15,7 @@ export const getCarQuery = createQuery({
     },
 
     queryFn: async (params: CarQueryParams) => {
-        const responseData = await makeRequest< {car: ApiData.Car}>({
+        const responseData = await makeRequest<{ car: ApiData.Car }>({
             url: `cars/${params.stockNumber}`,
         });
 

@@ -1,4 +1,4 @@
-import {stringify} from 'query-string';
+import { stringify } from 'query-string';
 
 interface MakeRequestParams {
     url: string;
@@ -15,5 +15,5 @@ export const makeRequest = async <Response>(params: MakeRequestParams) => {
     }
     const response = await fetch(url);
 
-    return await response.json() as Response;
-}
+    return (await response.json()) as Response;
+};

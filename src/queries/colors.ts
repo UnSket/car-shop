@@ -1,5 +1,5 @@
-import {createQuery} from "../lib/createQuery";
-import {makeRequest} from "../lib/api";
+import { createQuery } from '../lib/createQuery';
+import { makeRequest } from '../lib/api';
 
 export function getColorQueryKey(): string {
     return `colors`;
@@ -11,7 +11,7 @@ export const getColorQuery = createQuery({
     },
 
     queryFn: async () => {
-        const responseData = await makeRequest< {colors: string[]}>({
+        const responseData = await makeRequest<{ colors: string[] }>({
             url: `colors`,
         });
 
