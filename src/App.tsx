@@ -12,6 +12,7 @@ import {Header} from './components/Header/Header';
 import {Footer} from './components/Footer/Footer';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {CarInfo} from "./screens/CarInfo/CarInfo";
+import {ErrorBoundary} from "./components/ErrorBoundary/ErrorBoundary";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -30,11 +31,14 @@ export const App: React.FC = () => {
                 <div className={styles.container}>
                     <Header/>
                     <div className={styles.content}>
-                        <Routes>
-                            <Route path="/" element={<CarsList/>}/>
-                            <Route path="/car/:stockNumber" element={<CarInfo/>}/>
-                            <Route path="*" element={<NotFound/>}/>
-                        </Routes>
+                        <ErrorBoundary>
+                            <Routes>
+                                <Route path="/" element={<CarsList/>}/>
+                                <Route path="/car/:stockNumber" element={<CarInfo/>}/>
+                                <Route path="*" element={<NotFound/>}/>
+                            </Routes>
+                        </ErrorBoundary>
+
                     </div>
                     <Footer/>
                 </div>
