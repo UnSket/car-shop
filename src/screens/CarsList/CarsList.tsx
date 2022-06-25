@@ -4,11 +4,7 @@ import {CarsFilter, Filter} from "./Filter";
 import styles from './CarsList.module.scss';
 import {useSearchParams} from "react-router-dom";
 
-interface CarsListProps {
-
-}
-
-export const CarsList: React.FC<CarsListProps> = ({}) => {
+export const CarsList: React.FC = () => {
     let [searchParams, setSearchParams] = useSearchParams();
 
     const [filter, setFilter] = useState({

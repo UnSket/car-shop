@@ -13,11 +13,6 @@ export interface GetCarsListResponse {
     totalCarsCount: number
 }
 
-export function getCarQueryKey(stockNumber: string): string {
-    return `cars/${stockNumber}`;
-}
-
-
 export const getCarsListQuery = createQuery({
     queryKey(params: GetCarsListQueryParams) {
         const { manufacturer, color, page } = params;
@@ -29,7 +24,7 @@ export const getCarsListQuery = createQuery({
             page
         ].join('/');
     },
-    queryFn(params: GetCarsListQueryParams, { pageParam: offset = 0 }) {
+    queryFn(params: GetCarsListQueryParams) {
         const { manufacturer, color, page } = params;
 
         return makeRequest<GetCarsListResponse>({

@@ -12,5 +12,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 24px;
+}
+
+.content {
+  flex-grow: 1;
+  margin-left: 24px;
 }

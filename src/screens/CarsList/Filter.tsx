@@ -41,9 +41,10 @@ const SelectInput:React.FC<SelectInputProps> = ({onSelect, items, currentItem, l
                     color="secondary"
                     labelId={id}
                     id={id}
+                    data-testid={`filter-select-${label}`}
                 >
                     <MenuItem value={''}>Any</MenuItem>
-                    {items.map((item) => <MenuItem value={item} key={item}>{item}</MenuItem>)}
+                    {items.map((item) => <MenuItem value={item} key={item} data-testid={`filter-select-${label}-item-${item}`}>{item}</MenuItem>)}
                 </Select>
             </FormControl>
         </div>
@@ -91,7 +92,7 @@ export const Filter: React.FC<FilterProps> = ({onFilterSubmit, currentFilter}) =
                 <SelectInput onSelect={setManufacture} currentItem={manufacture} items={manufactureNames} label="Manufacturer" className={styles.manufactureSelect} />
             </CardContent>
             <CardActions className={styles.actions}>
-                <Button variant="contained" disabled={isSubmitDisabled} onClick={onSubmit}>Filter</Button>
+                <Button variant="contained" disabled={isSubmitDisabled} onClick={onSubmit} data-testid={`filter-submit-button`}>Filter</Button>
             </CardActions>
         </Card>
     )

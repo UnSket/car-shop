@@ -17,14 +17,14 @@ export const CarInfo: React.FC = () => {
     return (
         <div>
             {car ? <div className={styles.imageWrapper} style={{backgroundImage: `url(${car.pictureUrl})`}}/> :
-                <Skeleton variant="rectangular" height={styles.imageHeight}/>}
+                <Skeleton variant="rectangular" height={styles.imageHeight} data-testid="car-info-logo-skeleton"/>}
             <div className={styles.contentWrapper}>
                 <div className={styles.content}>
                     <div className={styles.contentRow}>
                         {car ? (
                             <>
-                                <Typography variant="h3">{car.manufacturerName}</Typography>
-                                <Typography variant="subtitle1" mt={1.5}>{getCarDescription(car)}</Typography>
+                                <Typography variant="h3" data-testid="car-info-manufacturer-name">{car.manufacturerName}</Typography>
+                                <Typography variant="subtitle1" mt={1.5} data-testid="car-info-description">{getCarDescription(car)}</Typography>
                                 <Typography variant="body1" mt={1.5}>
                                     This car is currently available and can be delivered as soon as tomorrow morning. Please
                                     be aware that delivery times shown in this page are note definitive and may change due
@@ -33,9 +33,9 @@ export const CarInfo: React.FC = () => {
                             </>
                             ) : (
                                 <>
-                                    <Skeleton variant="text" />
-                                    <Skeleton variant="text" />
-                                    <Skeleton variant="text" />
+                                    <Skeleton variant="text" data-testid="car-info-skeleton-1" />
+                                    <Skeleton variant="text" data-testid="car-info-skeleton-2" />
+                                    <Skeleton variant="text" data-testid="car-info-skeleton-3" />
                                 </>
                             )
                             }
