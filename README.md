@@ -16,7 +16,7 @@
 
 -   **Types** - Global application types
 
-## Project bonus features
+## Project additional features
 
 ### Caching
 
